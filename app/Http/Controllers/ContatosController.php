@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Contato;
 
 class ContatosController extends Controller
 {
@@ -13,28 +14,30 @@ class ContatosController extends Controller
      */
     public function index()
     {
-        //
+
+        $contatos=Contato::all();
+        return view('contato.index',compact('contatos'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+    return view ('contato.form');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        try{
+            Contato::create($request->all());
+            flash('Contato Salvo Com Sucesso')->success();
+
+        }catch(\Exception $erro){
+            flash('Erro ao Salvar Contato')->error();
+
+            return redirect()->back();
+        }
+
+            return redirect('/contatos');
     }
 
     /**

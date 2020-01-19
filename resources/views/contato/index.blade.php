@@ -5,9 +5,9 @@
 @section('conteudo')
 
 <br>
-
-<a class="btn btn-primary " href="/contatos/create">Cadastra Novo</a>
-
+<div class="col-lg-12" style="text-align: right;">
+<a class="btn btn-primary " href="contatos/create">Cadastra Novo</a>
+</div>
 <br> <br>
 
 <table class="table table-bordered">

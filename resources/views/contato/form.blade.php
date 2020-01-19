@@ -4,6 +4,7 @@
 
 @section('conteudo')
 
+
 <form method='post'>
   @csrf
 
@@ -15,8 +16,8 @@
     <input type="text" class="form-control" name="nome" value="{{$contato->nome ?? null}}">
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Telefone</label>
-    <input type="text" class="form-control" name="telefone" value="{{$$contato->telefone?? null}}">
+    <label for="exampleInputEmail1">Telefone</label>
+    <input type="text" class="form-control" name="telefone" value="{{$contato->telefone ?? null}}">
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">CPF</label>
@@ -28,7 +29,7 @@
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Cidade</label>
-    <input type="email" class="form-control" name="cidade" value="{{$contato->cidade ?? null}}">
+    <input type="text" class="form-control" name="cidade" value="{{$contato->cidade ?? null}}">
   </div>
 
   <button type="submit" class="btn btn-primary">Salvar</button>

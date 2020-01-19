@@ -16,13 +16,14 @@ class ContatosController extends Controller
     {
 
         $contatos=Contato::all();
-        return view('contato.index',compact('contatos'));
+
+        return view ('contato.index',compact('contatos'));
     }
 
 
     public function create()
     {
-    return view ('contato.form');
+    return view('contato.form');
     }
 
     public function store(Request $request)
@@ -59,7 +60,9 @@ class ContatosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $contato=Contato::find($id);
+
+        return view ('contato.form',compact('contato'));
     }
 
     /**
@@ -71,7 +74,11 @@ class ContatosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $contato = Contato::find($id);
+
+        $contato->update($request->all());
+
+        return redirect('/contatos');
     }
 
     /**
@@ -82,6 +89,9 @@ class ContatosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $contato = Contato:: find($id);
+        $contato->delete();
+
+        flash ('Cliente excluido com sucesso ')->success();
     }
 }

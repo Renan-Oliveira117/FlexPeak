@@ -7,71 +7,49 @@ use App\Contato;
 
 class ContatosController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    //metados para criação, editação, atualização e exclução de contato;
+
     public function index()
     {
 
-        $contatos=Contato::all();
+        $contatos = Contato::all();
 
-        return view ('contato.index',compact('contatos'));
+        return view('contato.index', compact('contatos'));
     }
+
 
 
     public function create()
     {
-    return view('contato.form');
+        return view('contato.form');
     }
+
+    
 
     public function store(Request $request)
     {
-        try{
+        try {
             Contato::create($request->all());
             flash('Contato Salvo Com Sucesso')->success();
-
-        }catch(\Exception $erro){
+        } catch (\Exception $erro) {
             flash('Erro ao Salvar Contato')->error();
 
             return redirect()->back();
         }
 
-            return redirect('/contatos');
+        return redirect('/contatos');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        $contato=Contato::find($id);
+        $contato = Contato::find($id);
 
-        return view ('contato.form',compact('contato'));
+        return view('contato.form', compact('contato'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
         $contato = Contato::find($id);
@@ -81,17 +59,12 @@ class ContatosController extends Controller
         return redirect('/contatos');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
-        $contato = Contato:: find($id);
+        $contato = Contato::find($id);
         $contato->delete();
 
-        flash ('Cliente excluido com sucesso ')->success();
+        flash('Cliente excluido com sucesso ')->success();
     }
 }

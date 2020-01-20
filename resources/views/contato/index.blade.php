@@ -2,14 +2,18 @@
 
 @section('titulo','Contato')
 
-@section('conteudo')
+@section('conteudo') 
 
+<!-- Tela para listar todos os contatos salvos -->
+<br>
+<h1>LISTA DE CONTATO</h1>
 <br>
 <div class="col-lg-12" style="text-align: right;">
 <a class="btn btn-primary " href="contatos/create">Cadastra Novo</a>
 </div>
-<br> <br>
+<br> 
 
+<!--Titulo das colunas da tabelas -->
 <table class="table table-bordered">
     <thead class="thead-dark">
         <tr>
@@ -23,7 +27,7 @@
         </tr>
     </thead>
    
-
+        <!-- Retornar todos os contatos salvo-->
         @foreach($contatos as $c)
 
         {{--Id:{{$c->id}} Nome:{{$c->nome}} - Telefone:{{$c->telefone}} - CPF:{{$c->cpf}} - RUA:{{$c->rua}} - CIDADE:{{$c->cidade}}  --}}

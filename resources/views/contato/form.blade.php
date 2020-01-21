@@ -17,27 +17,27 @@
   <div class="container-fluid">
   <div class="form-group">
     <label for="exampleInputEmail1">Nome</label>
-    <input type="text" class="form-control" name="nome" value="{{$contato->nome ?? null}}">
+    <input type="text" class="form-control" name="nome" placeholder=" DIGITE NOME"  value="{{$contato->nome ?? null}}">
   </div>
 
   <div class="form-group">
     <label for="exampleInputEmail1">Telefone</label>
-    <input type="text" class="form-control" name="telefone" value="{{$contato->telefone ?? null}}">
+    <input type="text" class="form-control" name="telefone" placeholder=" DIGITE TELEFONE" value="{{$contato->telefone ?? null}}">
   </div>
 
   <div class="form-group">
     <label for="exampleInputEmail1">CPF</label>
-    <input type="text" class="form-control" name="cpf" value="{{$contato->cpf ?? null}}">
+    <input type="text" class="form-control" name="cpf" placeholder=" DIGITE SOMENTE OS 11 NUMERO" value="{{$contato->cpf ?? null}}">
   </div>
 
   <div class="form-group">
     <label for="exampleInputPassword1">Rua</label>
-    <input type="text" class="form-control" name="rua" value="{{$contato->rua ?? null}}">
+    <input type="text" class="form-control" name="rua" placeholder="DIGITE RUA" value="{{$contato->rua ?? null}}">
   </div>
 
   <div class="form-group">
     <label for="exampleInputPassword1">Cidade</label>
-    <input type="text" class="form-control" name="cidade" value="{{$contato->cidade ?? null}}">
+    <input type="text" class="form-control" name="cidade" placeholder=" DIGITE CIDADE" value="{{$contato->cidade ?? null}}">
   </div>
 
   <button type="submit" class="btn btn-primary">Salvar</button>
